@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Hello World!"
+require './lib/tech_news'
+
+TechNews::CLI.new.call
