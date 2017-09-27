@@ -1,14 +1,14 @@
 class TechNews::Article
 
-  attr_accessor :title, :url 
+  attr_accessor :title, :url
 
   def self.all
     # here doc
-    puts <<-DOC
-      1. Chief executive ousted at Equifax following data breach
-      2. Why, Twitter, Why?
-      3. Microsoft tries to stem its self-made collaboration-tool confusion
-    DOC
+    # puts <<-DOC
+    #   1. Chief executive ousted at Equifax following data breach
+    #   2. Why, Twitter, Why?
+    #   3. Microsoft tries to stem its self-made collaboration-tool confusion
+    # DOC
     article_1 = self.new
     article_1.title = "Chief executive ousted at Equifax following data breach"
     article_1.url = "http://www.independent.ie/world-news/equifax-boss-ousted-following-major-cybersecurity-breach-36170371.html"

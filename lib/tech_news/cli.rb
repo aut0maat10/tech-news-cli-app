@@ -10,12 +10,7 @@ class TechNews::CLI
 
   def list_articles
     puts "The Latest Tech News:"
-    # here doc
-    puts <<-DOC
-      1. Chief executive ousted at Equifax following data breach
-      2. Why, Twitter, Why?
-      3. Microsoft tries to stem its self-made collaboration-tool confusion
-    DOC
+    @articles = TechNews::Article.all
   end
 
   def menu
