@@ -19,7 +19,7 @@ class TechNews::Article
     # instantiate an article
     data = []
     doc = Nokogiri::HTML(open("https://news.google.com/news/headlines/section/topic/TECHNOLOGY?ned=us&hl=en"))
-    title_array = doc.css("a.nuEeue").select {|element| element}
+    title_array = doc.css("a.nuEeue").select {|element| element['aria-level'] == "2"}
     title_array.each do |element|
       article = self.new
       article.title = element.children.text
