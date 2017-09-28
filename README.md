@@ -22,7 +22,7 @@ Or install it yourself as:
 
 Type the command below and follow the prompts on the screen.
 
-$ ./bin/tech-news
+    $ ./bin/tech-news
 
 ## Development
 
