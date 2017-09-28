@@ -11,7 +11,7 @@ class TechNews::CLI
     puts "The Latest Tech News:"
     @articles = TechNews::Article.all
     @articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.title}" # add source/publication???
+      puts "#{i}. #{article.title}"
     end
   end
 
@@ -23,11 +23,16 @@ class TechNews::CLI
 
       if input.to_i > 0
         the_article = @articles[input.to_i - 1]
+        #system("open #{the_article.url}")
+        #Launchy.open(the_article.url)
+        puts " "
         puts "#{the_article.title}"
+        puts "#{the_article.url}"
+        puts " "
       elsif input == "list"
         list_articles
       else
-        puts "Not sure what you want, type list or exit."
+        puts "Not sure what you want, type list or exit." unless input == "exit"
       end
     end
   end
