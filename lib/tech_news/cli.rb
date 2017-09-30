@@ -8,7 +8,9 @@ class TechNews::CLI
   end
 
   def list_articles
-    puts "The Latest Tech News:"
+    puts " "
+    puts "The Latest in Tech News:"
+    puts " "
     @articles = TechNews::Article.all
     @articles.each.with_index(1) do |article, i|
       puts "#{i}. #{article.title}"
@@ -18,13 +20,12 @@ class TechNews::CLI
   def menu
     input = nil
     while input != "exit"
+      puts " "
       puts "Enter the number of the article you'd like to read, type list to see the list of articles again, or type exit:"
       input = gets.strip.downcase
 
       if input.to_i > 0
         the_article = @articles[input.to_i - 1]
-        #system("open #{the_article.url}")
-        #Launchy.open(the_article.url)
         puts " "
         puts "#{the_article.title}"
         puts "#{the_article.url}"
