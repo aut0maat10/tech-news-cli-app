@@ -22,13 +22,15 @@ class TechNews::CLI
     while input != "exit"
       puts " "
       puts "Enter the number of the article you'd like to read, type list to see the list of articles again, or type exit:"
+      puts " "
       input = gets.strip.downcase
 
       if input.to_i > 0
         the_article = @articles[input.to_i - 1]
-        puts " "
-        puts "#{the_article.title}"
-        puts "#{the_article.url}"
+        puts ""
+        `open #{the_article.url}`
+        puts "#{input}. #{the_article.title}"
+        # puts "#{the_article.url}"
         puts " "
       elsif input == "list"
         list_articles
