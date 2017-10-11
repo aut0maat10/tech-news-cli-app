@@ -2,6 +2,8 @@
 class TechNews::CLI
 
   def call
+    TechNews::Scraper.scrape_google
+    @articles = TechNews::Article.all
     list_articles
     menu
     goodbye
@@ -11,7 +13,6 @@ class TechNews::CLI
     puts " "
     puts "The Latest in Tech News:"
     puts " "
-    @articles = TechNews::Article.all
     @articles.each.with_index(1) do |article, i|
       puts "#{i}. #{article.title}"
     end
@@ -25,7 +26,7 @@ class TechNews::CLI
       puts " "
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i.between?(1, @articles.size) 
         the_article = @articles[input.to_i - 1]
         puts ""
         `open #{the_article.url}`
